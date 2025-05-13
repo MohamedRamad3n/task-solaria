@@ -1,0 +1,257 @@
+.floor-plan {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #f5f5f5;
+}
+
+.filters {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.status-filters {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  flex: 1;
+  min-width: 250px;
+}
+
+.filter-group h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.status-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.status-label input[type="checkbox"] {
+  display: none;
+}
+
+.status-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.status-label.available .status-dot {
+  background-color: #3271cc;
+  border: 2px solid #1a4b8c;
+}
+
+.status-label.reserved .status-dot {
+  background-color: #ffa500;
+  border: 2px solid #cc8400;
+}
+
+.status-label.sold .status-dot {
+  background-color: #ff0000;
+  border: 2px solid #cc0000;
+}
+
+.status-label input[type="checkbox"]:checked + .status-dot {
+  transform: scale(1.2);
+}
+
+.price-range {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.range-input {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 4px;
+  background: #e0e0e0;
+  border-radius: 2px;
+  outline: none;
+  margin: 1rem 0;
+}
+
+.range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #3271cc;
+  border: 2px solid #1a4b8c;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.range-input::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  background: #1a4b8c;
+}
+
+.price-value {
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 500;
+  text-align: center;
+}
+
+.floor-plan-container {
+  position: relative;
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  min-height: 600px;
+  overflow: hidden;
+}
+
+.floor-plan-svg {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.floor-plan-svg svg {
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.floor-plan-svg svg:focus-within {
+  outline: 2px solid #3271cc;
+  outline-offset: 4px;
+}
+
+.floor-plan-svg polygon {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  stroke-width: 1.5;
+  fill-opacity: 0.9;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+.floor-plan-svg polygon:hover {
+  filter: brightness(1.1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+  stroke-width: 2;
+  fill-opacity: 1;
+  transform: scale(1.01);
+}
+
+.floor-plan-svg polygon.selected {
+  filter: brightness(1.2) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  stroke-width: 2.5;
+  fill-opacity: 1;
+  transform: scale(1.02);
+}
+
+.polygon-info {
+  position: absolute;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  min-width: 280px;
+  animation: fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+  pointer-events: none;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.polygon-info-arrow .arrow {
+  position: absolute;
+  left: -12px;
+  top: 20px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 12px solid white;
+  filter: drop-shadow(-2px 2px 2px rgba(0,0,0,0.1));
+  z-index: 11;
+}
+
+.polygon-info h3 {
+  margin: 0 0 1rem 0;
+  color: #1a1a1a;
+  font-size: 1.3rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.info-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 6px;
+}
+
+.info-row .label {
+  color: #666;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.info-row .value {
+  font-weight: 600;
+  color: #1a1a1a;
+  font-size: 1.1rem;
+}
+
+.info-row .value.status-available {
+  color: #3271cc;
+}
+
+.info-row .value.status-reserved {
+  color: #ffa500;
+}
+
+.info-row .value.status-sold {
+  color: #ff0000;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} 

@@ -1,0 +1,41 @@
+# dependencies
+/node_modules
+
+# production
+/dist
+
+# misc
+.DS_Store
+.env
+.env.*
+
+# local build
+*.local
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDEs and editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS generated files
+Thumbs.db
+.DS_Store
+
+# test coverage
+coverage/
+
+# build output
+build/
+
+# images and screenshots
+src/assets/*.png
+!src/assets/README.md

@@ -10,4 +10,4 @@ It allows users to visually explore a building's floor plan, filter units by pri
 
 ## Project Run
 
-![Floor Plan Viewer Screenshot](src/assets/screencapture-localhost-5173-2025-05-13-21_49_56.png)
+![Floor Plan Viewer Screenshot](src/assets/runexample.png)

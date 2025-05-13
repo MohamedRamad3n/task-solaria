@@ -35,7 +35,3 @@ coverage/
 
 # build output
 build/
-
-# images and screenshots
-src/assets/*.png
-!src/assets/README.md
